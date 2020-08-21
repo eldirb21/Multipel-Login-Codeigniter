@@ -1,0 +1,12 @@
+
+
+=====================================================================================
+system/core/Controller.php
+//function yang berguna apakah si user udah melakukan login atau belum. Jika belum pengguna akan diarahkan ke halaman login dan jika sudah pengguna akan diarahkan ke Category.
+	public function cek_status(){
+		$this->load->library('session');
+		if ($this->session->userdata('id')==NULL) {
+			$this->session->set_flashdata('error_login', 'Silahkan login terlebih dulu untuk mengakses data');
+			redirect('auth');
+		}
+	}
